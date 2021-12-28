@@ -22,7 +22,7 @@
       ],
       "args": [
         "--open",
-        "'test/flpSandbox.html#logaligroupemployees-display'"
+        "index.html"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",

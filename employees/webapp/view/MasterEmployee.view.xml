@@ -1,0 +1,35 @@
+<mvc:View
+    controllerName="logaligroup.employees.controller.MasterEmployee"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+   <Page id="page" title="{i18n>title}">
+                    <content>
+                    <HBox id="_IDGenHBox1" wrap="Wrap">
+                    <Label id="_IDGenLabel10" text="{i18n>employee}"></Label>
+                    <Input id="inputEmployee" value="{jsonCountries>/EmployeeId}" maxLength="6" liveChange="onValidateId"/>
+                    <Label id="labelOK" text=" "></Label>
+                    
+                    <Label id="_IDGenLabel11"  text="country"></Label>
+                    
+                    <Select id="_IDGenSelect1" selectedKey="{jsonCountries>/CountryKey}" forceSelection="false" items="{jsonCountries>/ListCountry}">
+                      <items>
+                      <core:Item id="_IDGenItem1" key="{jsonCountries>Key}" text="{jsonCountries>Text}"/>
+                      </items>
+                      <!-- <core:ListItem id="_IDGenListItem1" text="{i18n>unitedState}" key="US"/>
+                       <core:ListItem id="_IDGenListItem2" text="{i18n>unitedKingdom}" key="UK"/>
+                       <core:ListItem id="_IDGenListItem3" text="{i18n>spain}" key="ES"/> -->
+									</Select>
+                      <Button id="_IDGenButton1" icon="sap-icon://search" press="onFilter" ></Button>
+                      <Button id="_IDGenButton2" icon="sap-icon://clear-filter" press="onCleanFilter" ></Button>
+                     
+                    
+                    </HBox>
+                 
+                   <core:Fragment fragmentName="logaligroup.employees.fragment.TableEmployee" type="XML"/>
+                 
+                    </content>
+                    </Page>
+              
+</mvc:View>
