@@ -75,7 +75,7 @@ sap.ui.define([
                 var orderTable = this.getView().byId("ordersTable");
                 orderTable.destroyItems();
                 var itemPress = oEvent.getSource();
-                var context = itemPress.getBindingContext("jsonEmployees");
+                var context = itemPress.getBindingContext("odataNorthwind");
 
                 var objectContext = context.getObject();
                 var orders = objectContext.Orders;
@@ -105,13 +105,13 @@ sap.ui.define([
 
             onShowDetailsDialog: function (oEvent) {
                 var itemPress = oEvent.getSource();
-                var context = itemPress.getBindingContext("jsonEmployees");
+                var context = itemPress.getBindingContext("odataNorthwind");
                 if (!this._oDialogOrders) {
                     this._oDialogOrders = sap.ui.xmlfragment("logaligroup.employees.fragment.DialogOrders", this);
                     this.getView().addDependent(this._oDialogOrders);
                 }
 
-                this._oDialogOrders.bindElement("jsonEmployees>" + context.getPath());
+                this._oDialogOrders.bindElement("odataNorthwind>" + context.getPath());
                 this._oDialogOrders.open();
             },
 
@@ -122,7 +122,7 @@ sap.ui.define([
 
             showEmployees: function (oEvent) {
 
-                var path = oEvent.getSource().getBindingContext("jsonEmployees").getPath();
+                var path = oEvent.getSource().getBindingContext("odataNorthwind").getPath();
                 this._bus.publish("flexible", "showEmployees", path);
 
             }

@@ -1,4 +1,4 @@
-<mvc:View
+<mvc:View xmlns:f="sap.f"
     controllerName="logaligroup.employees.controller.EmployeeDetails"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
@@ -7,57 +7,64 @@
 <Page id="_IDGenPage1" title="Details">
 
 <Panel id="_IDGenPanel1" >
-<FlexBox height="65px" alignItems="Center" justifyContent="Center">
+<FlexBox id="_IDGenFlexBox1" height="65px" alignItems="Center" justifyContent="Center">
 <items>
-<Text id="_IDGenText1" text="{jsonEmployees>LastName}, {jsonEmployees>FirstName}" class="boldText"></Text>
+<Text id="_IDGenText1" text="{odataNorthwind>LastName}, {odataNorthwind>FirstName}" class="boldText"></Text>
 </items>
 </FlexBox>
 
-<FlexBox height="65px" alignItems="Start" justifyContent="SpaceBetween">
+<FlexBox id="_IDGenFlexBox2" height="65px" alignItems="Start" justifyContent="SpaceBetween">
 <items>
-<VBox >
+<VBox id="_IDGenVBox1" >
 <Text id="_IDGenText2" text="Employee Id" class="boldText sapUiTinyMarginEnd"></Text>
-<Text id="_IDGenText3" text="{jsonEmployees>EmployeeID}" class="sapUiTinyMarginEnd"></Text>
+<Text id="_IDGenText3" text="{odataNorthwind>EmployeeID}" class="sapUiTinyMarginEnd"></Text>
 </VBox>
-<VBox >
+<VBox id="_IDGenVBox2" >
 <Text id="_IDGenText4" text="TitleEmployee " class="boldText sapUiTinyMarginEnd"></Text>
-<Text id="_IDGenText5" text="{jsonEmployees>Title}" class="sapUiTinyMarginEnd"></Text>
+<Text id="_IDGenText5" text="{odataNorthwind>Title}" class="sapUiTinyMarginEnd"></Text>
 </VBox>
 </items>
 </FlexBox>
 
 
-<FlexBox   alignItems="Start"  >
+<FlexBox id="_IDGenFlexBox3" alignItems="Start"  >
 <items>
 <HBox >
 <Text id="_IDGenText6" text="Country code" class="boldText sapUiTinyMarginEnd"></Text>
-<Text id="_IDGenText7" text="{jsonEmployees>Country}" class="sapUiTinyMarginEnd"></Text>
+<Text id="_IDGenText7" text="{odataNorthwind>Country}" class="sapUiTinyMarginEnd"></Text>
 <layoutData>
-<FlexItemData growFactor="3" ></FlexItemData>
+<FlexItemData id="_IDGenFlexItemData1" growFactor="3" ></FlexItemData>
 </layoutData>
 </HBox>
-<HBox >
+<HBox id="_IDGenHBox1" >
 <Text id="_IDGenText8" text="City" class="boldText sapUiTinyMarginEnd"></Text>
-<Text id="_IDGenText9" text="{jsonEmployees>City}" class="sapUiTinyMarginEnd"></Text>
+<Text id="_IDGenText9" text="{odataNorthwind>City}" class="sapUiTinyMarginEnd"></Text>
 <layoutData>
-<FlexItemData growFactor="2" ></FlexItemData>
+<FlexItemData id="_IDGenFlexItemData2" growFactor="2" ></FlexItemData>
 </layoutData>
 </HBox>
 
-<FlexBox alignItems="Start" >
+<FlexBox id="_IDGenFlexBox4" alignItems="Start" >
 <Text id="_IDGenText10" text="Postal code" class="boldText sapUiTinyMarginEnd"></Text>
-<Text id="_IDGenText11" text="{jsonEmployees>PostalCode}" class="sapUiTinyMarginEnd"></Text>
+<Text id="_IDGenText11" text="{odataNorthwind>PostalCode}" class="sapUiTinyMarginEnd"></Text>
 <layoutData>
-<FlexItemData growFactor="1" ></FlexItemData>
+<FlexItemData id="_IDGenFlexItemData3" growFactor="1" ></FlexItemData>
 </layoutData>
 </FlexBox>
-
-
 </items>
 </FlexBox>
-
-
-
 </Panel>
+<Panel id="_IDGenPanel2">
+<headerToolbar>
+<Toolbar id="_IDGenToolbar1" >
+<Title id="_IDGenTitle1" text="{i18n>Incidence} {= ${odataNorthwind>Country} !== 'USA' ? ${i18n>Europa} : ${i18n>UnitedStates}}"></Title>
+<ToolbarSpacer id="_IDGenToolbarSpacer1"></ToolbarSpacer>
+<Button id="_IDGenButton1" text="Create incidence" press="onCreateIncidence"></Button>
+
+</Toolbar>
+</headerToolbar>
+<Panel id="tableIncidence" class="sapUiNoContentPadding" backgroundDesign="Transparent" ></Panel>
+</Panel>
+
 </Page>
 </mvc:View>

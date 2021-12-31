@@ -2,7 +2,7 @@
  <Panel id="_IDGenPanel1">
                      <Button id="_IDGenButton3" text="Show city" press="onShowCity" visible="{jsonConfig>/visibleBtnShowCity}"></Button>
                       <Button id="_IDGenButton4" text="Hide City" press="onHideCity" visible="{jsonConfig>/visibleBtnHideCity}"></Button>
-                    <Table id="_IDGenTable1" items="{jsonEmployees>/}" >
+                    <Table id="_IDGenTable1" items="{odataNorthwind>/Employees}" >
                     <columns>
                     <Column id="_IDGenColumn1" visible="{jsonConfig>/visibleId}">
                     <header>
@@ -35,10 +35,10 @@
                     <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press="showEmployees">
                     <cells>
                                                 
-                    <Label id="_IDGenLabel12" text="{jsonEmployees>EmployeeID}" ></Label>
-                    <Label id="_IDGenLabel13" text="{jsonEmployees>LastName},{jsonEmployees>FirstName}" ></Label>
-                    <Label id="_IDGenLabel14" text="{jsonEmployees>Country}" ></Label>
-                    <Label id="_IDGenLabel15" text="{jsonEmployees>City}" ></Label>
+                    <Label id="_IDGenLabel12" text="{odataNorthwind>EmployeeID}" ></Label>
+                    <Label id="_IDGenLabel13" text="{odataNorthwind>LastName},{odataNorthwind>FirstName}" ></Label>
+                    <Label id="_IDGenLabel14" text="{odataNorthwind>Country}" ></Label>
+                    <Label id="_IDGenLabel15" text="{odataNorthwind>City}" ></Label>
                     <core:Icon id="_IDGenIcon1" src="sap-icon://show" press="onShowDetailsDialog"></core:Icon>
                     
                     </cells>

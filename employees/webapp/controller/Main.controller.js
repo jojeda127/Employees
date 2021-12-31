@@ -35,9 +35,12 @@ this._bus.subscribe("flexible","showEmployees",this.showEmployeeDetails,this);
          
             showEmployeeDetails:function(category,nameEvent,path){
                 var detailView = this.getView().byId("detailsEmployee");
-                detailView.bindElement("jsonEmployees>" + path); 
+                detailView.bindElement("odataNorthwind>" + path); 
                 this.getView().getModel("jsonLayout").setProperty("/ActiveKey","TwoColumnsMidExpanded");
 
+                 var incidenceModel = new sap.ui.model.json.JSONModel([]);
+                 detailView.setModel(incidenceModel,"incidenceModel");
+                 detailView.byId("tableIncidence").removeAllContent();
             }
         });    
  });
