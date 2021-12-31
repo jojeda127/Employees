@@ -8,57 +8,29 @@
   ],
   "configurations": [
     {
-      "name": "Start employees",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
+      "name": "employees",
       "cwd": "${workspaceFolder}/employees",
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
       "runtimeArgs": [
         "fiori",
         "run"
       ],
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
       "args": [
         "--open",
         "index.html"
       ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229,
-      "env": {
-        "DEBUG": "--inspect",
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/Employees/employees\"}",
-        "FIORI_TOOLS_UI5_VERSION": "",
-        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com",
-        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/V2\",\"destination\":\"Northwind\"}]"  
-    }
-    },
-    {
-      "name": "Start employees Local",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}/employees",
-      "runtimeExecutable": "npx",
       "windows": {
         "runtimeExecutable": "npx.cmd"
       },
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "args": [
-        "--config",
-        "./ui5-local.yaml",
-        "--open",
-        "'test/flpSandbox.html#logaligroupemployees-display'"
-      ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229,
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
       "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/Employees/employees\"}"
+        "FIORI_TOOLS_UI5_VERSION": "",
+        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/Employees/employees\"}",
+        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/V2\",\"destination\":\"Northwind\"},{\"path\":\"/sap\",\"destination\":\"logaligroupERP\"}]"
       }
     }
   ],

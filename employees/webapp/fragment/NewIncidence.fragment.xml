@@ -7,6 +7,7 @@
                    ${incidenceModel>status} === '2' ? 'decline' : '' }"></core:Icon>
     <Title text="Incidence {incidenceModel>index } {path: 'incidenceModel>date',formatter:'.Formatter.dateFormat'}"></Title>               
     <ToolbarSpacer></ToolbarSpacer>
+<Button icon="sap-icon://save"></Button>
     <core:Icon id="_IDGenIcon1" src="delete" press="onDelete"/>
 </Toolbar>
 </headerToolbar>
