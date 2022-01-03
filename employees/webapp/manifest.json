@@ -18,10 +18,11 @@
                     "odataVersion": "2.0"
                 }
             },
-            "YSAPUI5_SRV_01.svc": {
+            "YSAPUI5_SRV_01": {
                 "uri": "sap/opu/odata/sap/YSAPUI5_SRV_01/",
                 "type": "OData",
                 "settings": {
+										  
                     "localUri": "localService/YSAPUI5_SRV_01/metadata.xml",
                     "odataVersion": "2.0"
                 }
@@ -73,8 +74,12 @@
                     "refreshAfterChange": false
                 }
             },
+
+                
+                
             "incidenceModel": {
-                "type": "sap.ui.model.odata.v2.oDataModel",
+						
+                "type": "sap.ui.model.odata.v2.ODataModel",
                 "dataSource": "YSAPUI5_SRV_01",
                 "preload": true,
                 "settings": {
@@ -138,3 +143,15 @@
         }
     }
 }
+					
+	 
+	   
+		
+	  
+	
+			  
+	   
+   
+		
+	
+	 

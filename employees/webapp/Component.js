@@ -25,7 +25,9 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
-            }
+            },
+
+            SapId:"jose.ojeda.g1@gmail.com"
         });
     }
 );
