@@ -1,7 +1,8 @@
 
 sap.ui.define([
-    'sap/ui/core/mvc/Controller'
-], function (Controller) {
+    'sap/ui/core/mvc/Controller',
+    'sap/m/MessageBox'
+], function (Controller,MessageBox) {
     return Controller.extend("logaligroup.employees.controller.Main", {
 
         onBeforeRendering: function () {
@@ -77,7 +78,8 @@ sap.ui.define([
                 this.getView().getModel("incidenceModel").create("/IncidentsSet", body, {
                     success: function () {
                         this.onReadDataInstances.bind(this)(employee.toString());
-                        sap.m.MessageToast.show(oResourceBudle.getText("odataSaveOK"));
+                        MessageBox.success(oResourceBudle.getText("odataSaveOK"));
+                        //sap.m.MessageToast.show(oResourceBudle.getText("odataSaveOK"));
                     }.bind(this),
                     error: function (e) {
                         sap.m.MessageToast.show(oResourceBudle.getText("odataSaveKO"));
@@ -100,7 +102,8 @@ sap.ui.define([
                     "',EmployeeId='" + incidenceModel[data.incidenceRow].EmployeeId + "')", body, {
                     success: function () {
                         this.onReadDataInstances.bind(this)(employee.toString());
-                        sap.m.MessageToast.show(oResourceBudle.getText("odataUpdateOK"));
+                        MessageBox.success(oResourceBudle.getText("odataUpdateOK"));
+                        //sap.m.MessageToast.show(oResourceBudle.getText("odataUpdateOK"));
                     }.bind(this),
                     error: function (e) {
                         sap.m.MessageToast.show(oResourceBudle.getText("No changes"));
@@ -125,6 +128,8 @@ sap.ui.define([
                     tableIncidence.removeAllContent();
 
                     for (var i in data.results) {
+                        data.results[i]._ValidateDate = true;
+                        data.results[i].EnabledSave = false;
                         var newIncidence = sap.ui.xmlfragment("logaligroup.employees.fragment.NewIncidence", this._detailEmployeeView.getController());
                         this._detailEmployeeView.addDependent(newIncidence);
                         newIncidence.bindElement("incidenceModel>/" + i);

@@ -7,23 +7,23 @@
                    ${incidenceModel>Type} === '2' ? 'decline' : '' }"></core:Icon>
     <Title text="Incidence {incidenceModel>IncidenceId} {path: 'incidenceModel>CreationDate',formatter:'.Formatter.dateFormat'}"></Title>               
     <ToolbarSpacer></ToolbarSpacer>
-<Button icon="sap-icon://save" press="onSaveIncidence"></Button>
+<Button icon="sap-icon://save" press="onSaveIncidence" enabled="{=${incidenceModel>EnableSave}===true}"></Button>
     <core:Icon  src="delete" press="onDelete"/>
 </Toolbar>
 </headerToolbar>
     <content>
         <HBox>
             <VBox class="sapUiSmallMarginEnd">
-                <Text text="Incidende date"/>
-                <DatePicker dateValue="{incidenceModel>CreationDate}" change="updataIncidenceDate"/>
+                <Label text="Incidende date" required="true"/>
+                <DatePicker dateValue="{incidenceModel>CreationDate}" change="updataIncidenceDate" valueState="{incidenceModel>CreationDateState}"/>
             </VBox>
             <VBox visible="{= ${incidenceModel>CreationDate} !== '' &amp;&amp; ${incidenceModel>CreationDate} !== undefined}" class="sapUiSmallMarginEnd">
-                <Text text="Reason"/>
-                <Input value="{incidenceModel>Reason}" change="updateIncidenceReason"/>
+                <Label text="Reason" required="true"/>
+                <Input value="{incidenceModel>Reason}" change="updateIncidenceReason" valueState="{incidenceModel>ReasonState}"/>
             </VBox>
             <VBox visible="{= ${incidenceModel>CreationDate} !== '' &amp;&amp; ${incidenceModel>CreationDate} !== undefined}" >
                 <Text text="Incidence type"/>
-                <Select selectedKey="{incidenceModel>Type}" forceSelection="false" change="updateIncidenceType">
+                <Select selectedKey="{incidenceModel>Type}" forceSelection="false" change="updateIncidenceType" >
                     <core:Item key="0" text="Correct" ></core:Item>
                     <core:Item key="1" text="Pending" ></core:Item>
                     <core:Item key="2" text="Error" ></core:Item>
