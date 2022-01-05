@@ -11,7 +11,7 @@
         "description": "{{appDescription}}",
         "dataSources": {
             "Northwind.svc": {
-                "uri": "V2/Northwind/Northwind.svc/",
+                "uri": "v2/Northwind/Northwind.svc/",
                 "type": "OData",
                 "settings": {
                     "localUri": "localService/metadata.xml",
