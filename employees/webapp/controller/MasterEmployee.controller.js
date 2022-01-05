@@ -121,9 +121,17 @@ sap.ui.define([
             },
 
             showEmployees: function (oEvent) {
-
                 var path = oEvent.getSource().getBindingContext("odataNorthwind").getPath();
                 this._bus.publish("flexible", "showEmployees", path);
+
+            },
+
+            toOrderDetails:function(oEvent){
+                var order = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
+                var objectRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                objectRouter.navTo("RouteOrderDetails",{
+                    OrderID :order
+                });
 
             }
 

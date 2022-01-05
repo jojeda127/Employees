@@ -128,6 +128,13 @@ sap.ui.define([
         context.getModel().refresh();
     };
 
+    function toOrderDetails(oEvent) {
+        var order = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
+        var objectRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        objectRouter.navTo("RouteOrderDetails", {
+            OrderID: order
+        });
+    }
     var EmployeeDetails = Controller.extend("logaligroup.employees.controller.EmployeeDetails", {});
     EmployeeDetails.prototype.onInit = onInit;
     EmployeeDetails.prototype.onCreateIncidence = onCreateIncidence;
