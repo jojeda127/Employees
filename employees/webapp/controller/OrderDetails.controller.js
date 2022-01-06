@@ -3,7 +3,7 @@ sap.ui.define([
     'sap/ui/core/mvc/Controller',
     'sap/ui/core/routing/History'
 ], function (Controller, History) {
-    function _onObjectMatched() {
+    function _onObjectMatched(oEvent) {
         this.getView().bindElement({
             path: "/Orders(" + oEvent.getParameter("arguments").OrderID + ")",
             model: "odataNorthwind"
@@ -13,8 +13,8 @@ sap.ui.define([
 
 
         onInit: function () {
-            var oRouter = sap.ui.core.UICompenent.getRouterFor(this);
-            oRouter.getRouter("RouteOrderDetails").attachPatternMatched(_onObjectMatched, this);
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.getRoute("RouteOrderDetails").attachPatternMatched(_onObjectMatched, this);
 
         },
         onBack: function (oEvent) {
@@ -26,6 +26,11 @@ sap.ui.define([
                 var oRouter = sap.ui.UIComponent.getRouterFor(this);
                 oRouter.navTo("RouteMain", true);
             }
+        },
+
+        onClearSignature: function (oEvent) {
+            var signature = this.byId("signature");
+            signature.clear();
         }
     });
 

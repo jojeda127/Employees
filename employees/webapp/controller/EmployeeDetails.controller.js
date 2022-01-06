@@ -144,6 +144,7 @@ sap.ui.define([
     EmployeeDetails.prototype.updataIncidenceDate = updataIncidenceDate;
     EmployeeDetails.prototype.updateIncidenceReason = updateIncidenceReason;
     EmployeeDetails.prototype.updateIncidenceType = updateIncidenceType;
+    EmployeeDetails.prototype.toOrderDetails = toOrderDetails;
     return EmployeeDetails;
 
 });

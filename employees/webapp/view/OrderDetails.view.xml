@@ -6,19 +6,20 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:f="sap.ui.layout.form"
+    xmlns:sc="logaligroup.employees.control"
     >
  <Page>
     <customHeader>
         <Bar>
             <contentLeft><Button icon="sap-icon://nav-back" press="onBack"></Button></contentLeft>
-            <contentMiddle> <Text text="Order Details {odataNorthwind>OrderID}" />
+            <contentMiddle> <Text text="Order Details {odataNorthwind>CustomerID}" />
             </contentMiddle>
         </Bar>
     </customHeader>
     <content>
     <Panel headerText="Customer ID {odataNorthwind>CustomerID}" >
     <l:Grid defaultSpan="XL3 L3 M6 S12" >
-        <f:form editable="false">
+        <f:Form editable="false">
             <f:layout>
                 <f:ResponsiveGridLayout labelSpamL="6" labelSpamM="6" labelSpamS="12"/>
             </f:layout>
@@ -27,38 +28,43 @@
                     <f:formElements>
                         <f:FormElement label="Order ID">
                             <f:fields>
-                                <Text text="{'path:odataNorthwind>OrderDate',type:'sap.ui.model.odata.type.Date'}"></Text>
+                                <Text text="{path:'odataNorthwind>OrderDate',type:'sap.ui.model.odata.type.Date'}"></Text>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="Ship name">
                             <f:fields>
-                                <Text text="{odataNorthwind>ShipName'}"></Text>
+                                <Text text="{odataNorthwind>ShipName}"></Text>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="Freight">
                             <f:fields>
-                                <Text text="{odataNorthwind>Freight'}"></Text>
+                                <Text text="{odataNorthwind>Freight}"></Text>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="Ship Adr">
                             <f:fields>
-                                <Text text="{odataNorthwind>ShipAddress'}"></Text>
+                                <Text text="{odataNorthwind>ShipAddress}"></Text>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="Ship City">
                             <f:fields>
-                                <Text text="{odataNorthwind>ShipCity'}"></Text>
+                                <Text text="{odataNorthwind>ShipCity}"></Text>
                             </f:fields>
                         </f:FormElement>
                         <f:FormElement label="Ship City">
                             <f:fields>
-                                <Text text="{odataNorthwind>ShipCity'}"></Text>
+                                <Text text="{odataNorthwind>ShipCity}"></Text>
                             </f:fields>
                         </f:FormElement>
                     </f:formElements>
                 </f:FormContainer>
             </f:formContainers>
-        </f:form>
+        </f:Form>
+<FlexBox class="sapuitinyMarginTop">
+<sc:Signature id="signature"></sc:Signature>
+<Button text="clear" press="onClearSignature" class="sapuitinyMarginBegin"></Button>
+</FlexBox>
+
     </l:Grid>
     
     </Panel>
