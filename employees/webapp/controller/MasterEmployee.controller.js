@@ -1,15 +1,16 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+   // "sap/ui/core/mvc/Controller",
+    "logaligroup/employees/controller/Base.controller",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator) {
+    function (Base, Filter, FilterOperator) {
         "use strict";
 
-        return Controller.extend("logaligroup.employees.controller.MasterEmployee", {
+        return Base.extend("logaligroup.employees.controller.MasterEmployee", {
             onInit: function () {
                 this._bus = sap.ui.getCore().getEventBus();
 
@@ -124,7 +125,7 @@ sap.ui.define([
                 var path = oEvent.getSource().getBindingContext("odataNorthwind").getPath();
                 this._bus.publish("flexible", "showEmployees", path);
 
-            },
+            }/*,
 
             toOrderDetails:function(oEvent){
                 var order = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
@@ -133,7 +134,7 @@ sap.ui.define([
                     OrderID :order
                 });
 
-            }
+            }*/
 
         });
     });

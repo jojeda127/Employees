@@ -1,8 +1,9 @@
 sap.ui.define([
-    'sap/ui/core/mvc/Controller',
+    //'sap/ui/core/mvc/Controller',
+    "logaligroup/employees/controller/Base.controller",
     'logaligroup/employees/model/formatter',
     'sap/m/MessageBox'
-], function (Controller, formatter, MessageBox) {
+], function (Base, formatter, MessageBox) {
 
     //return Controller.extend("logaligroup.employees.controller.EmployeeDetails",{
     function onInit() {
@@ -128,14 +129,14 @@ sap.ui.define([
         context.getModel().refresh();
     };
 
-    function toOrderDetails(oEvent) {
+ /*   function toOrderDetails(oEvent) {
         var order = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID;
         var objectRouter = sap.ui.core.UIComponent.getRouterFor(this);
         objectRouter.navTo("RouteOrderDetails", {
             OrderID: order
         });
-    }
-    var EmployeeDetails = Controller.extend("logaligroup.employees.controller.EmployeeDetails", {});
+    }*/
+    var EmployeeDetails = Base.extend("logaligroup.employees.controller.EmployeeDetails", {});
     EmployeeDetails.prototype.onInit = onInit;
     EmployeeDetails.prototype.onCreateIncidence = onCreateIncidence;
     EmployeeDetails.prototype.Formatter = formatter;
@@ -144,7 +145,7 @@ sap.ui.define([
     EmployeeDetails.prototype.updataIncidenceDate = updataIncidenceDate;
     EmployeeDetails.prototype.updateIncidenceReason = updateIncidenceReason;
     EmployeeDetails.prototype.updateIncidenceType = updateIncidenceType;
-    EmployeeDetails.prototype.toOrderDetails = toOrderDetails;
+    //EmployeeDetails.prototype.toOrderDetails = toOrderDetails;
     return EmployeeDetails;
 
 });
